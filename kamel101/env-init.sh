@@ -3,4 +3,3 @@ wget https://github.com/apache/camel-k/releases/download/1.0.0-RC2/camel-k-clien
 tar -xvf camel-k-client-1.0.0-RC2-linux-64bit.tar.gz
 mv kamel /usr/bin
 mkdir camel-basic
-touch Basic.java
