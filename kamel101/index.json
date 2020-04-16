@@ -1,6 +1,6 @@
 {
-  "title": "Simple Camel K",
-  "description": "",
+  "title": "Kamel 101 the basic",
+  "description": "Simple Camel K application ",
   "difficulty": "Beginner",
   "time": "15 mins",
   "details": {
@@ -20,10 +20,6 @@
       {
         "title": "Step 4",
         "text": "step4.md"
-      },
-      {
-        "title": "Step 5",
-        "text": "step5.md"
       }
     ],
     "intro": {
@@ -33,8 +29,11 @@
       "text": "finish.md"
     }
   },
-  "environment": {},
+  "environment": {
+    "uilayout": "terminal-iframe"
+  },
   "backend": {
-    "imageid": "kubernetes-cluster-running"
+    "imageid": "kubernetes-cluster-running",
+    "port": "80"
   }
 }
