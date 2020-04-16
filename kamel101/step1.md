@@ -36,3 +36,6 @@ To create a new project called ``camel-basic`` run the command:
 ## Install Camel K Operator
 
 ``kamel install``{{execute}}
+
+OLM is available in the cluster
+Camel K installed in namespace default via OLM subscription
