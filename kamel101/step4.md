@@ -53,3 +53,7 @@ You should see it reflected in the logs (which will be printed every minute by t
 kamel log routing
 ```
 Hit `ctrl+c` on the terminal window.
+
+## Congratulations
+
+In this scenario you got to play with Camel K. Focusing on the code, and see the power of how Camel K can enhance your experience when working on Kubernetes/OpenShift. There is much more to Camel K than realtime development and  developer joy. Be sure to visit [Camel K ](https://camel.apache.org/camel-k/latest/index.html) to learn even more about the architecture and capabilities of this exciting new framework.
