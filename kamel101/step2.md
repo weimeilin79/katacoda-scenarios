@@ -1,5 +1,5 @@
 ## Writing the first Camel K application
-We are going to start fresh with a simple Camel K hello world application. Go to the text editor on the right, under the folder /root/camel-basic. Right click on the directory and choose new -> file and name it `Basic.java`.
+We are going to start fresh with a simple Camel K getting started application. Go to the text editor on the right, under the folder /root/camel-basic. Right click on the directory and choose new -> file and name it `Basic.java`.
 
 Paste the following code into the application.
 
@@ -23,14 +23,40 @@ public class Basic extends RouteBuilder {
 
 </pre>
 
-Notice you don't need to specify ANY dependency specification in the folder, Camel K will figure it out, and inject it during the build. So all you need is to JUST write your application. In this case, the Kamel binary will
+Notice you don't need to specify ANY dependency specification in the folder, Camel K will figure it out, and inject it during the build. So all you need is to JUST write your application. In this case, the Kamel binary will push it to the cluster and the operator will do all the tedious footworks for you.
 
 ``kamel run camel-basic/Basic.java --dev``{{execute}}
+
+Wait for the integration to be running (you should see the logs streaming in the terminal window).
+```
+integration "basic" created
+Progress: integration "basic" in phase Initialization
+IntegrationPlatformAvailable for Integration basic: camel-k
+Integration basic in phase Initialization
+Progress: integration "basic" in phase Building Kit
+No IntegrationKitAvailable for Integration basic: creating a new integration kit
+Integration basic in phase Building Kit
+Integration basic dependent resource kit-bqceoqg41jjjfrfg2okg (Integration Kit) changed phase to Build Submitted
+Integration basic dependent resource kit-bqceoqg41jjjfrfg2okg (Build) changed phase to Scheduling
+Integration basic dependent resource kit-bqceoqg41jjjfrfg2okg (Integration Kit) changed phase to Build Running
+```
 
 It's going to take 1-2 mins to start up your first application, since it needs to pull and build the image for the first time. But the next build will only take seconds.
 
 Once it started, you will see the log printing `Hello World! Camel K route written in Java`. You can find the pod running this hello world application in the console too.
 
-Go to  
+```
+[3] 2020-04-17 00:31:44.003 INFO  [Camel (camel-k) thread #1 - timer://java] ingo - Exchange[ExchangePattern: InOnly, BodyType: String, Body: Hello World! Camel K route written in java.]
+[3] 2020-04-17 00:31:45.003 INFO  [Camel (camel-k) thread #1 - timer://java] ingo - Exchange[ExchangePattern: InOnly, BodyType: String, Body: Hello World! Camel K route written in java.]
+[3] 2020-04-17 00:31:46.002 INFO  [Camel (camel-k) thread #1 - timer://java] ingo - Exchange[ExchangePattern: InOnly, BodyType: String, Body: Hello World! Camel K route written in java.]
+[3] 2020-04-17 00:31:47.002 INFO  [Camel (camel-k) thread #1 - timer://java] ingo - Exchange[ExchangePattern: InOnly, BodyType: String, Body: Hello World! Camel K route written in java.]
+[3] 2020-04-17 00:31:48.002 INFO  [Camel (camel-k) thread #1 - timer://java] ingo - Exchange[ExchangePattern: InOnly, BodyType: String, Body: Hello World! Camel K route written in java.]
+[3] 2020-04-17 00:31:49.004 INFO  [Camel (camel-k) thread #1 - timer://java] ingo - Exchange[ExchangePattern: InOnly, BodyType: String, Body: Hello World! Camel K route written in java.]
+[3] 2020-04-17 00:31:50.002 INFO  [Camel (camel-k) thread #1 - timer://java] ingo - Exchange[ExchangePattern: InOnly, BodyType: String, Body: Hello World! Camel K route written in java.]
+[3] 2020-04-17 00:31:51.003 INFO  [Camel (camel-k) thread #1 - timer://java] ingo - Exchange[ExchangePattern: InOnly, BodyType: String, Body: Hello World! Camel K route written in java.]
+```
+
+Go to  https://console-openshift-console-2886795320-443-simba02.environments.katacoda.com/k8s/ns/camel-basic/pods and click into, log and see the same output as in the terminal.
+
 
 Now, come back to the editor and try changing the word `java` to something else, such as `Java` with Capital letter. And see what happens.   
