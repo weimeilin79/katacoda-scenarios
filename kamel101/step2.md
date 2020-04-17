@@ -43,7 +43,7 @@ Integration basic dependent resource kit-bqceoqg41jjjfrfg2okg (Integration Kit) 
 
 It's going to take 1-2 mins to start up your first application, since it needs to pull and build the image for the first time. But the next build will only take seconds.
 
-Once it started, you will see the log printing `Hello World! Camel K route written in Java`. You can find the pod running this hello world application in the console too.
+Once it started. You can find the pod running this Basic application in the terminal.
 
 ```
 [3] 2020-04-17 00:31:44.003 INFO  [Camel (camel-k) thread #1 - timer://java] ingo - Exchange[ExchangePattern: InOnly, BodyType: String, Body: Hello World! Camel K route written in java.]
@@ -56,7 +56,20 @@ Once it started, you will see the log printing `Hello World! Camel K route writt
 [3] 2020-04-17 00:31:51.003 INFO  [Camel (camel-k) thread #1 - timer://java] ingo - Exchange[ExchangePattern: InOnly, BodyType: String, Body: Hello World! Camel K route written in java.]
 ```
 
-Go to  https://console-openshift-console-2886795320-443-simba02.environments.katacoda.com/k8s/ns/camel-basic/pods and click into, log and see the same output as in the terminal.
+Go to  [Console](https://console-openshift-console-[[HOST_SUBDOMAIN]]-443-[[KATACODA_HOST]].environments.katacoda.com/k8s/ns/camel-basic/pods) and click into, log. The output in the console is the same as in the terminal.
+
+Go back to the editor and try changing the word `java` to  `Java` with Capital letter. And see what happens.   
 
 
-Now, come back to the editor and try changing the word `java` to something else, such as `Java` with Capital letter. And see what happens.   
+```
+[3] 2020-04-17 00:32:11.003 INFO  [Camel (camel-k) thread #1 - timer://java] ingo - Exchange[ExchangePattern: InOnly, BodyType: String, Body: Hello World! Camel K route written in Java.]
+[3] 2020-04-17 00:32:12.003 INFO  [Camel (camel-k) thread #1 - timer://java] ingo - Exchange[ExchangePattern: InOnly, BodyType: String, Body: Hello World! Camel K route written in Java.]
+[3] 2020-04-17 00:32:13.002 INFO  [Camel (camel-k) thread #1 - timer://java] ingo - Exchange[ExchangePattern: InOnly, BodyType: String, Body: Hello World! Camel K route written in Java.]
+[3] 2020-04-17 00:32:14.002 INFO  [Camel (camel-k) thread #1 - timer://java] ingo - Exchange[ExchangePattern: InOnly, BodyType: String, Body: Hello World! Camel K route written in Java.]
+[3] 2020-04-17 00:32:15.002 INFO  [Camel (camel-k) thread #1 - timer://java] ingo - Exchange[ExchangePattern: InOnly, BodyType: String, Body: Hello World! Camel K route written in Java.]
+[3] 2020-04-17 00:32:16.004 INFO  [Camel (camel-k) thread #1 - timer://java] ingo - Exchange[ExchangePattern: InOnly, BodyType: String, Body: Hello World! Camel K route written in Java.]
+[3] 2020-04-17 00:32:17.002 INFO  [Camel (camel-k) thread #1 - timer://java] ingo - Exchange[ExchangePattern: InOnly, BodyType: String, Body: Hello World! Camel K route written in Java.]
+[3] 2020-04-17 00:32:18.003 INFO  [Camel (camel-k) thread #1 - timer://java] ingo - Exchange[ExchangePattern: InOnly, BodyType: String, Body: Hello World! Camel K route written in Java.]
+```
+
+Hit ctrl+c on the terminal window. This will also terminate the execution of the integration.

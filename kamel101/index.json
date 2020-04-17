@@ -1,7 +1,7 @@
 {
     "icon": "fa-openshift",
-    "title": "Camel K 101 on OpenShift 4.2",
-    "description": "",
+    "title": "Camel K Basics",
+    "description": "This is simple basic Camel K hello world example",
     "pathwayTitle": "OpenShift",
     "difficulty": "beginner",
     "time": "15 minutes",
@@ -28,6 +28,10 @@
 	      {
 	        "title": "Step 3",
 	        "text": "step3.md"
+	      },
+	      {
+	        "title": "Step 4",
+	        "text": "step4.md"
 	      }
 	    ],
 	    "intro": {

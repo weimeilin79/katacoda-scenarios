@@ -1,6 +1,6 @@
 ## Applying configuration and routing
 
-This shows how to configure the integration using external properties with simple content-based router.
+This step shows how to configure the integration using external properties with simple content-based router.
 Go to the text editor on the right, under the folder /root/camel-basic. Right click on the directory and choose new -> file and name it `Routing.java`
 
 Paste the following code into the application.
@@ -73,12 +73,15 @@ priority-marker=*
 To run the integration, we should link the integration to the property file providing configuration for it:
 
 ```
-kamel run Routing.java --property-file routing.properties --dev
+kamel run camel-basic/Routing.java --property-file  camel-basic/routing.properties --dev
+```
+Once it started. You can find the pod running this Routing application in the terminal.
+```
 ```
 
-
-You can now make some changes to the property file and see the integration redeployed.
+Now make some changes to the property file and see the integration redeployed.
 For example, change the word `door` with `*door` to see it sent to the priority queue.
-
+```
+```
 
 Hit `ctrl+c` on the terminal window.This will also terminate the execution of the integration.
