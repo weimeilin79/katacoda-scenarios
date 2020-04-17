@@ -6,7 +6,7 @@ For example, you can change the first endpoint (`timer:java?period=3000`) into t
 
 Now you can run the integration again:
 
-``kamel run camel-basic/Routing.java --property-file routing.properties``{{execute}}
+``kamel run camel-basic/Routing.java --property-file camel-basic/routing.properties``{{execute}}
 
 Now you'll see that Camel K has materialized a cron job:
 
@@ -37,7 +37,7 @@ The CronJob behavior is controlled via a Trait called `cron`. Traits are the mai
 
 To disable the cron feature and use the deployment strategy, you can run the integration with:
 
-``kamel run camel-basic/Routing.java --property-file routing.properties -t cron.enabled=false``{{execute}}
+``kamel run camel-basic/Routing.java --property-file camel-basic/routing.properties -t cron.enabled=false``{{execute}}
 
 
 This will disable the cron trait and restore the classic behavior (always running pod).
