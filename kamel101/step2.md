@@ -56,7 +56,7 @@ Once it started. You can find the pod running this Basic application in the term
 [3] 2020-04-17 00:31:51.003 INFO  [Camel (camel-k) thread #1 - timer://java] ingo - Exchange[ExchangePattern: InOnly, BodyType: String, Body: Hello World! Camel K route written in java.]
 ```
 
-Go to  [Console](https://console-openshift-console-[[HOST_SUBDOMAIN]]-443-[[KATACODA_HOST]].environments.katacoda.com/k8s/ns/camel-basic/pods) and click into, log. The output in the console is the same as in the terminal.
+Go to  [Console](https://console-openshift-console-[[HOST_SUBDOMAIN]]-443-[[KATACODA_HOST]].environments.katacoda.com/k8s/ns/camel-basic/pods). Login if you have not already do so. Click into, log. The output in the console is the same as in the terminal.
 
 Go back to the editor and try changing the word `java` to  `Java` with Capital letter. And see what happens.   
 

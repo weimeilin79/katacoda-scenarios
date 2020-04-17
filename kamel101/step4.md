@@ -6,32 +6,29 @@ For example, you can change the first endpoint (`timer:java?period=3000`) into t
 
 Now you can run the integration again:
 
-```
-kamel run camel-basic/Routing.java --property-file routing.properties
-```
+``kamel run camel-basic/Routing.java --property-file routing.properties``{{execute}}
 
 Now you'll see that Camel K has materialized a cron job:
 
-```
-oc get cronjob
-```
+``oc get cronjob``{{execute}}
 
 You'll find a Kubernetes CronJob named "routing".
+
+```
+NAME      SCHEDULE      SUSPEND   ACTIVE   LAST SCHEDULE   AGE
+routing   0/1 * * * ?   False     0        39s             51s
+```
 
 The running behavior changes, because now there's no pod always running (beware you should not store data in memory when using the cronJob strategy).
 
 You can see the pods starting and being destroyed by watching the namespace:
 
-```
-oc get pod -w
-```
+``oc get pod -w``{{execute}}
 
 Hit `ctrl+c` on the terminal window.
 To see the logs of each integration starting up, you can use the `kamel log` command:
 
-```
-kamel log routing
-```
+``kamel log routing``{{execute}}
 
 You should see every minute a JVM starting, executing a single operation and terminating.
 
@@ -40,20 +37,17 @@ The CronJob behavior is controlled via a Trait called `cron`. Traits are the mai
 
 To disable the cron feature and use the deployment strategy, you can run the integration with:
 
-```
-kamel run camel-basic/Routing.java --property-file routing.properties -t cron.enabled=false
-```
+``kamel run camel-basic/Routing.java --property-file routing.properties -t cron.enabled=false``{{execute}}
 
 
 This will disable the cron trait and restore the classic behavior (always running pod).
 
 You should see it reflected in the logs (which will be printed every minute by the same JVM):
 
-```
-kamel log routing
-```
+``kamel log routing``{{execute}}
+
 Hit `ctrl+c` on the terminal window.
 
 ## Congratulations
 
-In this scenario you got to play with Camel K. Focusing on the code, and see the power of how Camel K can enhance your experience when working on Kubernetes/OpenShift. There is much more to Camel K than realtime development and  developer joy. Be sure to visit [Camel K ](https://camel.apache.org/camel-k/latest/index.html) to learn even more about the architecture and capabilities of this exciting new framework.
+In this scenario you got to play with Camel K. Focusing on the code, and see the power of how Camel K can enhance your experience when working on Kubernetes/OpenShift. There is much more to Camel K than realtime development and  developer joy. Be sure to visit [Camel K](https://camel.apache.org/camel-k/latest/index.html) to learn even more about the architecture and capabilities of this exciting new framework.

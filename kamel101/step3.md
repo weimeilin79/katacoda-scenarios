@@ -25,7 +25,7 @@ public class Routing extends RouteBuilder {
 
 
 
-      from("timer:java?period=60000")
+      from("timer:java?period=3000")
         .id("generator")
         .bean(this, "generateRandomItem({{items}})")
         .choice()
@@ -72,16 +72,22 @@ priority-marker=*
 
 To run the integration, we should link the integration to the property file providing configuration for it:
 
-```
-kamel run camel-basic/Routing.java --property-file  camel-basic/routing.properties --dev
-```
+``kamel run camel-basic/Routing.java --property-file  camel-basic/routing.properties --dev``{{execute}}
 Once it started. You can find the pod running this Routing application in the terminal.
+
 ```
+[1] 2020-04-17 03:21:30.097 INFO  [Camel (camel-k) thread #1 - timer://camel-k-cron-override] standard - Standard item: door
+[1] 2020-04-17 03:21:30.098 INFO  [Camel (camel-k) thread #1 - timer://camel-k-cron-override] CronRoutePolicyFactory$CronRoutePolicy - Context shutdown started by cron policy
+[1] 2020-04-17 03:21:30.102 INFO  [Camel (camel-k) thread #1 - timer://camel-k-cron-override] CronRoutePolicyFactory$CronRoutePolicy - Context shutdown started by cron policy
+[1] 2020-04-17 03:21:30.103 INFO  [Camel (camel-k) thread #2 - terminator] DefaultCamelContext - Apache Camel 3.0.1 (CamelContext: camel-k) is shutting down
+[1] 2020-04-17 03:21:30.108 INFO  [Camel (camel-k) thread #2 - terminator] DefaultShutdownStrategy - Starting to graceful shutdown 3 routes (timeout 300 seconds)
+[1] 2020-04-17 03:21:30.116 INFO  [Camel (camel-k) thread #4 - ShutdownTask] DefaultShutdownStrategy - Route: priority shutdown complete, was consuming from: direct://priorityQueue
+[1] 2020-04-17 03:21:30.117 INFO  [Camel (camel-k) thread #4 - ShutdownTask] DefaultShutdownStrategy - Route: standard shutdown complete, was consuming from: direct://standardQueue
+[1] 2020-04-17 03:21:30.118 INFO  [Camel (camel-k) thread #4 - ShutdownTask] DefaultShutdownStrategy - Route: generator shutdown complete, was consuming from: timer://camel-k-cron-override?delay=0&period=1&repeatCount=1
 ```
 
 Now make some changes to the property file and see the integration redeployed.
 For example, change the word `door` with `*door` to see it sent to the priority queue.
-```
-```
+
 
 Hit `ctrl+c` on the terminal window.This will also terminate the execution of the integration.
