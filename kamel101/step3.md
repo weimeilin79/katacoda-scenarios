@@ -1,7 +1,7 @@
 ## Applying configuration and routing
 
 This step shows how to configure the integration using external properties with simple content-based router.
-Go to the text editor on the right, under the folder /root/camel-basic. Right click on the directory and choose new -> file and name it `Routing.java`
+Go to the text editor on the right, under the folder /root/camel-basic. Right click on the directory and choose New -> File and name it `Routing.java`
 
 Paste the following code into the application.
 
@@ -60,7 +60,7 @@ public class Routing extends RouteBuilder {
 The `Routing.java` file shows how to inject properties into the routes via property placeholders and also the usage of the `@PropertyInject` annotation.
 The routes use two configuration properties named `items` and `priority-marker` that should be provided using an external file such as the `routing.properties`
 
-Go to the text editor on the right, under the folder /root/camel-basic. Right click on the directory and choose new -> file and name it `routing.properties`
+Go to the text editor on the right, under the folder /root/camel-basic. Right click on the directory and choose New -> File and name it `routing.properties`
 
 <pre class="file" data-filename="routing.properties" data-target="replace">
 # List of items for random generation
@@ -76,14 +76,16 @@ To run the integration, we should link the integration to the property file prov
 Once it started. You can find the pod running this Routing application in the terminal.
 
 ```
-[1] 2020-04-17 03:21:30.097 INFO  [Camel (camel-k) thread #1 - timer://camel-k-cron-override] standard - Standard item: door
-[1] 2020-04-17 03:21:30.098 INFO  [Camel (camel-k) thread #1 - timer://camel-k-cron-override] CronRoutePolicyFactory$CronRoutePolicy - Context shutdown started by cron policy
-[1] 2020-04-17 03:21:30.102 INFO  [Camel (camel-k) thread #1 - timer://camel-k-cron-override] CronRoutePolicyFactory$CronRoutePolicy - Context shutdown started by cron policy
-[1] 2020-04-17 03:21:30.103 INFO  [Camel (camel-k) thread #2 - terminator] DefaultCamelContext - Apache Camel 3.0.1 (CamelContext: camel-k) is shutting down
-[1] 2020-04-17 03:21:30.108 INFO  [Camel (camel-k) thread #2 - terminator] DefaultShutdownStrategy - Starting to graceful shutdown 3 routes (timeout 300 seconds)
-[1] 2020-04-17 03:21:30.116 INFO  [Camel (camel-k) thread #4 - ShutdownTask] DefaultShutdownStrategy - Route: priority shutdown complete, was consuming from: direct://priorityQueue
-[1] 2020-04-17 03:21:30.117 INFO  [Camel (camel-k) thread #4 - ShutdownTask] DefaultShutdownStrategy - Route: standard shutdown complete, was consuming from: direct://standardQueue
-[1] 2020-04-17 03:21:30.118 INFO  [Camel (camel-k) thread #4 - ShutdownTask] DefaultShutdownStrategy - Route: generator shutdown complete, was consuming from: timer://camel-k-cron-override?delay=0&period=1&repeatCount=1
+[1] 2020-04-17 03:35:40.528 INFO  [Camel (camel-k) thread #1 - timer://java] standard - Standard item: door
+[1] 2020-04-17 03:35:43.532 INFO  [Camel (camel-k) thread #1 - timer://java] standard - Standard item: door
+[1] 2020-04-17 03:35:46.538 INFO  [Camel (camel-k) thread #1 - timer://java] priority - !!Priority item: engine
+[1] 2020-04-17 03:35:49.526 INFO  [Camel (camel-k) thread #1 - timer://java] standard - Standard item: door
+[1] 2020-04-17 03:35:52.532 INFO  [Camel (camel-k) thread #1 - timer://java] priority - !!Priority item: chair
+[1] 2020-04-17 03:35:55.532 INFO  [Camel (camel-k) thread #1 - timer://java] priority - !!Priority item: radiator
+[1] 2020-04-17 03:35:58.529 INFO  [Camel (camel-k) thread #1 - timer://java] priority - !!Priority item: chair
+[1] 2020-04-17 03:36:01.527 INFO  [Camel (camel-k) thread #1 - timer://java] standard - Standard item: door
+[1] 2020-04-17 03:36:04.536 INFO  [Camel (camel-k) thread #1 - timer://java] standard - Standard item: window
+[1] 2020-04-17 03:36:07.541 INFO  [Camel (camel-k) thread #1 - timer://java] priority - !!Priority item: radiator
 ```
 
 Now make some changes to the property file and see the integration redeployed.

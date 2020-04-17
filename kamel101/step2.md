@@ -1,5 +1,5 @@
 ## Writing the first Camel K application
-We are going to start fresh with a simple Camel K getting started application. Go to the text editor on the right, under the folder /root/camel-basic. Right click on the directory and choose new -> file and name it `Basic.java`.
+We are going to start fresh with a simple Camel K getting started application. Go to the text editor on the right, under the folder /root/camel-basic. Right click on the directory and choose New -> File and name it `Basic.java`.
 
 Paste the following code into the application.
 
@@ -56,7 +56,7 @@ Once it started. You can find the pod running this Basic application in the term
 [3] 2020-04-17 00:31:51.003 INFO  [Camel (camel-k) thread #1 - timer://java] ingo - Exchange[ExchangePattern: InOnly, BodyType: String, Body: Hello World! Camel K route written in java.]
 ```
 
-Go to  [Console](https://console-openshift-console-[[HOST_SUBDOMAIN]]-443-[[KATACODA_HOST]].environments.katacoda.com/k8s/ns/camel-basic/pods). Login if you have not already do so. Click into, log. The output in the console is the same as in the terminal.
+Go to  [Console](https://console-openshift-console-[[HOST_SUBDOMAIN]]-443-[[KATACODA_HOST]].environments.katacoda.com/k8s/ns/camel-basic/pods). Login if you have not already do so. Click into the *basic-xxxxxxxxxx* pod, click on the log tab. The output in the console should be the same as in the terminal.
 
 Go back to the editor and try changing the word `java` to  `Java` with Capital letter. And see what happens.   
 
