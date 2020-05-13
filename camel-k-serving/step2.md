@@ -9,9 +9,75 @@ You have access to an OpenAPI standard document, that contains operations for:
 The document is written in YAML, this is what it looks like.
 
 ```
-```
+openapi: 3.0.2
+info:
+    title: Camel K Object API
+    version: 1.0.0
+    description: A CRUD API for an object store
+paths:
+    /:
+        get:
+            responses:
+                '200':
+                    content:
+                        application/json:
+                            schema:
+                                type: array
+                                items:
+                                    type: string
+                    description: Object list
+            operationId: list
+            summary: List the objects
+    '/{name}':
+        get:
+            responses:
+                '200':
+                    content:
+                        application/octet-stream: {}
+                    description: The object content
+            operationId: get
+            summary: Get the content of an object
+        put:
+            requestBody:
+                description: The object content
+                content:
+                    application/octet-stream: {}
+                required: true
+            responses:
+                '200':
+                    description: The object has been created
+            operationId: create
+            summary: Save an object
+        delete:
+            responses:
+                '204':
+                    description: Object has been deleted
+            operationId: delete
+            summary: Delete an object
+        parameters:
+            -
+                name: name
+                description: Name of the object
+                schema:
+                    type: string
+                in: path
+                required: true
+    /list:
+        get:
+            responses:
+                '200':
+                    content:
+                        application/json:
+                            schema:
+                                type: array
+                                items:
+                                    type: string
+            operationId: list
+            summary: List the objects
 
-You can take this and view it in https://www.apicur.io, as a web based UI to design and view your OpenAPI based APIs. (OPTIONAL)
+```
+#### (OPTIONAL)
+You can take this and view it in https://www.apicur.io, as a web based UI to design and view your OpenAPI based APIs.
 
 Let's create the camel route that implements the operations that was defined in the API.  
 Go to the text editor on the right, under the folder /root/camel-api. Right click on the directory and choose New -> File and name it `API.java`.
@@ -83,7 +149,7 @@ camel.context.rest-configuration.api-context-path=/api-doc
 
 We are now ready to start up the application, simply point to the OpenAPI standard document and along with the implemented Camel K application. Notice we are also pointing to the configuration file too.
 
-``kamel run --name api test/MinioCustomizer.java API.java --property-file test/minio.properties --open-api openapi.yaml -d camel-openapi-java``{{execute}}
+``kamel run --name api helper/MinioCustomizer.java camel-api/API.java --property-file camel-api/minio.properties --open-api helper/openapi.yaml -d camel-openapi-java``{{execute}}
 
 Wait for the integration to be running (you should see the logs streaming in the terminal window).
 
