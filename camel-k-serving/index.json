@@ -4,7 +4,7 @@
     "description": "Showing how to expose API with Camel K and also making it serverless",
     "pathwayTitle": "OpenShift",
     "difficulty": "beginner",
-    "time": "15 minutes",
+    "time": "20 minutes",
     "backend": {
         "imageid": "openshift-4-2"
     },
@@ -13,7 +13,7 @@
         "dashboards": [{"name": "Console", "href": "https://console-openshift-console-[[HOST_SUBDOMAIN]]-443-[[KATACODA_HOST]].environments.katacoda.com"}],
         "uilayout": "editor-terminal",
     		"uisettings": "java",
-        "uieditorpath": "/root/camel-basic"
+        "uieditorpath": "/root/camel-api"
     },
     "details": {
         "steps": [
@@ -40,6 +40,15 @@
 	    },
 	    "finish": {
 	      "text": "finish.md"
+	    },
+	    "assets": {
+	      "client": [
+	        { "file": "helper/MinioCustomizer.java", "target": "~/camel-api/MinioCustomizer.java" },
+	        { "file": "helper/openapi.yaml", "target": "~/camel-api/openapi.yaml" },
+	        { "file": "serverless/serving.yaml", "target": "~/serverless/serving.yaml" },
+	        { "file": "serverless/subscription.yaml", "target": "~/serverless/subscription.yaml" },
+	        { "file": "minio/minio.yaml", "target": "~/minio/minio.yaml" }
+	      ]
 	    }
     }
 }
