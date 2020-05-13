@@ -6,9 +6,9 @@ For example, you can change the first endpoint (`timer:java?period=3000`) into t
 
 Now you can run the integration again:
 
-``kamel run camel-basic/Routing.java --property-file routing.properties``{{execute}}
+``kamel run camel-basic/Routing.java --property-file camel-basic/routing.properties``{{execute}}
 
-Now you'll see that Camel K has materialized a cron job:
+Now you'll see that Camel K has materialized a cron job (it's might take one minute to appear.):
 
 ``oc get cronjob``{{execute}}
 
